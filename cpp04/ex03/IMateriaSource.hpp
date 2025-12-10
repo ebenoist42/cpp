@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/08 17:06:14 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:29:46 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-
+#ifndef IMATERIALSOURCE_HPP
+#define IMATERIALSOURCE_HPP
 #include <iostream>
+#include "AMateria.hpp"
 
-class ClapTrap{
+class IMateriaSource
+{
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	
-private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+virtual ~IMateriaSource() {}
+virtual void learnMateria(AMateria*) = 0;
+virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 #endif

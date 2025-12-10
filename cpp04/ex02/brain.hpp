@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/08 13:54:35 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/08 15:26:25 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
 
-class ClapTrap{
+class Brain {
+
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	Brain();
+	~Brain();
+	Brain& operator=(const Brain& other);
+	Brain(const Brain& other);
 	
 private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+	std::string random [100];
 };
 
 #endif

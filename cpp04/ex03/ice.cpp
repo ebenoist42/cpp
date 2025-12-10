@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 15:51:34 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/06 18:44:43 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/09 10:39:04 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:06:35 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "ice.hpp"
 
-#include <iostream>
-#include "ClapTrap.hpp"
+Ice::Ice() : AMateria("ice") {}
 
-class ScavTrap : public ClapTrap{
+Ice::Ice(const Ice& other) : AMateria(other.type) {}
 
-public: 
-	ScavTrap(const std::string& name);
-	~ScavTrap();
-	ScavTrap (const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	
-	void	attack (const std::string& taget);
-	void	guardGate();
+Ice& Ice::operator=(const Ice& other) {
+	if (this != &other)
+		type = other.type;
+	return *this;
+}
 
-private:
-	
-};
+Ice::~Ice() {}
 
-#endif
+AMateria* Ice::clone() const {
+	return new Ice(*this);
+}
+
+void Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

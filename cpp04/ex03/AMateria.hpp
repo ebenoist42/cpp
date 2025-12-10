@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/08 16:53:41 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:25:26 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 #include <iostream>
 
-class ClapTrap{
+class ICharacter;
+
+class AMateria
+{
+protected:
+	std::string type;
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	AMateria(std::string const & type);
+	AMateria& operator=(const AMateria& other);
+	AMateria(const AMateria& other);
+	virtual ~AMateria();
 	
-private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+	std::string const & getType() const; // Retourne le type de materia
+	
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 };
+
 
 #endif

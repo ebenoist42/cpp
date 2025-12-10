@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Materiasource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/09 10:41:32 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:34:00 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-
-#include <iostream>
-
-class ClapTrap{
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
+#include "IMateriaSource.hpp"
+class MateriaSource : public IMateriaSource {
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	
+	MateriaSource();
+	MateriaSource(const MateriaSource& other);
+	MateriaSource& operator=(const MateriaSource& other);
+	~MateriaSource();
+
+	void learnMateria(AMateria* m);
+	AMateria* createMateria(const std::string& type);
 private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+	AMateria* materias[4];
 };
 
 #endif

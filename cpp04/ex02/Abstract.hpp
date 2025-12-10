@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Abstract.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 15:51:34 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/06 18:44:43 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/08 16:28:16 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/08 16:37:02 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef ABSTRACT_HPP
+#define ABSTRACT_HPP
 
-#include <iostream>
-#include "ClapTrap.hpp"
+class NoAnimal {
 
-class ScavTrap : public ClapTrap{
+public :
 
-public: 
-	ScavTrap(const std::string& name);
-	~ScavTrap();
-	ScavTrap (const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	
-	void	attack (const std::string& taget);
-	void	guardGate();
+protected :
 
-private:
-	
+
 };
 
 #endif

@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   Icharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/08 17:04:09 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:14:06 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 #include <iostream>
+#include <string>
+class AMateria;
 
-class ClapTrap{
+class ICharacter
+{
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	
-private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+virtual ~ICharacter() {}
+virtual std::string const & getName() const = 0;
+virtual void equip(AMateria* m) = 0;
+virtual void unequip(int idx) = 0;
+virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif

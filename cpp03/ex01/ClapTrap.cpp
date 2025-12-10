@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:58:12 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/03 15:27:18 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:49:35 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ClapTrap::ClapTrap (const ClapTrap& other)
 	Attack_damage = other.Attack_damage;
 }
 
-ClapTrap ClapTrap::operator= (const ClapTrap& other)
+ClapTrap& ClapTrap::operator= (const ClapTrap& other)
 {
 	name = other.name;
 	Hit_points = other.Hit_points;

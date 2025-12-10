@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/03 15:24:24 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:49:41 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ public:
 	ClapTrap(std::string name);
 	~ClapTrap();
 	ClapTrap (const ClapTrap& other);
-	ClapTrap operator= (const ClapTrap& other);
+	ClapTrap& operator= (const ClapTrap& other);
+	
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	
-private:
+protected:
 	std::string name;
 	int Hit_points;
 	int Energy_points;

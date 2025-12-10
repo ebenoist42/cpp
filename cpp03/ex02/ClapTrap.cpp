@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 13:58:12 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:24 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:49:47 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,17 @@ void ClapTrap::takeDamage(unsigned int amount)
 	Hit_points -= amount;
 	if(Hit_points < 0)
 		Hit_points = 0;
-	std::cout << "ClapTrap " << name << " tacke damage and have " << Hit_points << " Hit points"  << std::endl;
+	std::cout << "ClapTrap " << name << " take damage and have " << Hit_points << " Hit points"  << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if(!Energy_points)
+	if (Hit_points <= 0)
+	{
+		std::cout << name << " is dead and can't be repaired!" << std::endl;
+		return;
+	}
+	if(Energy_points <= 0)
 		std::cout << name << " can't be repaired, no a lot energy points, game over" << std::endl;
 	else
 	{

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 13:58:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/07 18:49:30 by ebenoist         ###   ########.fr       */
+/*   Created: 2025/12/09 10:39:11 by ebenoist          #+#    #+#             */
+/*   Updated: 2025/12/09 11:26:25 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
 
-#include <iostream>
+#ifndef CURE_HPP
+#define CURE_HPP
 
-class ClapTrap{
+#include "AMateria.hpp"
+#include "Icharacter.hpp"
+
+
+class Cure : public AMateria {
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
-	ClapTrap (const ClapTrap& other);
-	ClapTrap& operator= (const ClapTrap& other);
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	Cure();
+	Cure(const Cure& other);
+	Cure& operator=(const Cure& other);
+	~Cure();
 	
-private:
-	std::string name;
-	int Hit_points;
-	int Energy_points;
-	int Attack_damage;
+	AMateria* clone() const;
+	void use(ICharacter& target);
 };
 
 #endif

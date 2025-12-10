@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:05:02 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/12/06 18:44:49 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:29:41 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap (const ScavTrap& other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap copy constructor called\n";
-	*this = other;
+	this->Hit_points = other.Hit_points;
+	this->Energy_points = other.Energy_points;
+	this->Attack_damage = other.Attack_damage;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -42,7 +44,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << name << " is now in Gate keeper mode." << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
