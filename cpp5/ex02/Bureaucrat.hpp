@@ -16,9 +16,9 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat{
 
@@ -43,7 +43,8 @@ public:
 			return "Grade is to low !";
 		}
 	};
-	void	signForm(Form& Form);
+	void	signForm(AForm& Form);
+	void	executeForm(AForm const &form) const;
 
 private:
 	const std::string name;

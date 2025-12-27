@@ -10,14 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Multiple_Form
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS =	main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
-		ShrubberyCreationForm.cpp\
 		PresidentialPardonForm.cpp\
 		RobotomyRequestForm.cpp\
 

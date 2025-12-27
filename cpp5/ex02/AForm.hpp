@@ -10,26 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 #include "Bureaucrat.hpp"
 class Bureaucrat;
 
-class Form {
+class AForm {
 
 public: 
 
-	Form(const std::string name, int GradeToSigne, int GradeToExecute);
-	Form& operator=(const Form &other);
-	Form(const Form &other);
-	~Form();
+	AForm(const std::string name, int GradeToSigne, int GradeToExecute);
+	AForm& operator=(const AForm &other);
+	AForm(const AForm &other);
+	virtual ~AForm();
 
 	const std::string&	getName() const;
 	int			getToSign() const;
 	int			getToExec() const;
 	bool		getIsSigned() const;
-	void	beSigned(const Bureaucrat& bureaucrat) = 0;
-
+	void	beSigned(const Bureaucrat& bureaucrat);
+	class FormNotSignedExecption : public std::exception{
+		const char* what() const throw(){
+			return "Form is not signed !";
+		}
+	};
 	class GradeToHighException : public std::exception{
 		const char* what() const throw(){
 			return "Grade is too hight !";
@@ -40,14 +44,16 @@ public:
 			return "Grade is too low !";
 		}
 	};
-private:
+	void check_signed(Bureaucrat const &executor) const;
+	virtual void execute(Bureaucrat const &executor) const =0;
+
+protected:
 	const std::string name;
 	bool  issigned;
 	const int GradeToSigne;
 	const int GradeToExecute;
-	
 };
 
-std::ostream& operator<<(std::ostream &opera, const Form &other);
+std::ostream& operator<<(std::ostream &opera, const AForm &other);
 
 #endif
