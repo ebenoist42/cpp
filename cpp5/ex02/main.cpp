@@ -13,6 +13,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
@@ -22,7 +23,7 @@ std::cout << "------------------Form-PresidentialPardonForm---------------------
     {
         Bureaucrat boss("Boss", 1);
         Bureaucrat intern("Intern", 150);
-        PresidentialPardonForm form("La mere du boss");
+        PresidentialPardonForm form("Creation d'arbre de Noel");
         std::cout << "\n--- Tentative d'execution sans signature ---\n";
         boss.executeForm(form);
         std::cout << "\n--- Signature du formulaire ---\n";
@@ -41,26 +42,44 @@ std::cout << "------------------Form-PresidentialPardonForm---------------------
     {
         Bureaucrat boss("Boss 2", 1);
         Bureaucrat intern("Intern 2", 150);
-        RobotomyRequestForm form("Random Form");
+        RobotomyRequestForm form2("Random Form");
         std::cout << "\n--- Tentative d'execution sans signature ---\n";
-        boss.executeForm(form);
+        boss.executeForm(form2);
         std::cout << "\n--- Signature du formulaire ---\n";
-        boss.signForm(form);
+        boss.signForm(form2);
         std::cout << "\n--- Execution avec un bon grade 1er tentative---\n";
-        boss.executeForm(form);
+        boss.executeForm(form2);
 		std::cout << "\n--- Execution avec un bon grade 2eme tentative---\n";
-        boss.executeForm(form);
+        boss.executeForm(form2);
 		std::cout << "\n--- Execution avec un bon grade 3eme tentative---\n";
-        boss.executeForm(form);
+        boss.executeForm(form2);
         std::cout << "\n--- Execution avec un grade trop bas ---\n";
-        intern.executeForm(form);
+        intern.executeForm(form2);
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception attrapée dans main : " << e.what() << std::endl;
     }
-	std::cout << "------------------Form-RobotomyRequestForm----------------------\n";
-
+	std::cout << "------------------Form-ShrubberyCreationForm----------------------\n";
+	try
+    {
+        Bureaucrat boss("Boss 3", 1);
+        Bureaucrat intern("Intern 3", 150);
+        ShrubberyCreationForm form3("Creation Arbre Noel");
+        std::cout << "\n--- Tentative d'execution sans signature ---\n";
+        boss.executeForm(form3);
+        std::cout << "\n--- Signature du formulaire ---\n";
+        boss.signForm(form3);
+        std::cout << "\n--- Execution avec un bon grade ---\n";
+        boss.executeForm(form3);
+		//form3.execute(boss);
+        std::cout << "\n--- Execution avec un grade trop bas ---\n";
+        intern.executeForm(form3);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception attrapée dans main : " << e.what() << std::endl;
+    }
 
 
     return 0;

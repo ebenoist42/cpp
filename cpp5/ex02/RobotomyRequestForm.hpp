@@ -26,6 +26,7 @@ public :
 
 	void execute(const Bureaucrat& executor) const;
 	const std::string& getTarjet() const;
+	
 private :
 	std::string target;
 };
